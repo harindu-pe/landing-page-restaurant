@@ -2,10 +2,13 @@ import About from "@/components/shared/About";
 import Footer from "@/components/shared/Footer";
 import Header from "@/components/shared/Header";
 import Hero from "@/components/shared/Hero";
-import Map from "@/components/shared/Map";
 import Menu from "@/components/shared/Menu";
 import Reservation from "@/components/shared/Reservation";
 import StyleGuide from "@/components/shared/StyleGuide";
+import dynamic from "next/dynamic";
+const MyAwesomeMap = dynamic(() => import("@/components/shared/Map"), {
+  ssr: false,
+});
 
 export default function Home() {
   return (
@@ -16,7 +19,7 @@ export default function Home() {
       <Menu />
       <Reservation />
       <About />
-      <Map />
+      <MyAwesomeMap />
       <Footer />
     </main>
   );
